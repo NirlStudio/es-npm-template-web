@@ -1,0 +1,12 @@
+{
+  "editor.tabSize": 2,
+  "cSpell.words": [
+    "leevi",
+    "nirl",
+    "nirlstudio",
+    "sugly"
+  ],
+  "files.trimTrailingWhitespace": true,
+  "javascript.validate.enable": false,
+  "standard.enable": true,
+}

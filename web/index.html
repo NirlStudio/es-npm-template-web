@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Sugly To-Do</title>
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+  <link rel="stylesheet" type="text/css" href="style/main.css">
+</head>
+<body>
+  <div class="editor">
+    <input type="hidden" id="todo-editor" value=""/>
+    <input type="text" id="todo-editor" autocomplete="off" value=""/>
+    <input type="button" id="todo-save" value="&#x23ce;" />
+  </div>
+  <ul id="todo-list" class="todo-list">
+    <li class="todo-item">
+      <span class="todo-text">Hello, world.</span>
+    </li>
+  </ul>
+  <script>
+  ((function () {
+    var head = document.getElementsByTagName('head')[0]
+    function insertScript (src) {
+      var node = document.createElement('script')
+      node.src = src
+      head.appendChild(node)
+    }
+    /MSIE \d|Trident.*rv:/.test(navigator.userAgent) && insertScript(
+      '//cdn.jsdelivr.net/npm/bluebird@3.5.3/js/browser/bluebird.min.js'
+    )
+  })())
+  </script>
+</body>
+</html>
