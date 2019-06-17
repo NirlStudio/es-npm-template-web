@@ -4,31 +4,65 @@
   <meta charset="utf-8">
   <title>Sugly To-Do</title>
   <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
   <link rel="stylesheet" type="text/css" href="style/main.css">
 </head>
 <body>
-  <div class="editor">
-    <input type="hidden" id="todo-editor" value=""/>
-    <input type="text" id="todo-editor" autocomplete="off" value=""/>
-    <input type="button" id="todo-save" value="&#x23ce;" />
+<section class="hero is-light">
+  <div class="hero-head">
+    <div class="container">
+      <h1 class="title">Sugly To-Do</h1>
+      <h2 class="subtitle">also Powered by Bulma</h2>
+    </div>
   </div>
-  <ul id="todo-list" class="todo-list">
-    <li class="todo-item">
-      <span class="todo-text">Hello, world.</span>
-    </li>
-  </ul>
-  <script>
-  ((function () {
-    var head = document.getElementsByTagName('head')[0]
-    function insertScript (src) {
-      var node = document.createElement('script')
-      node.src = src
-      head.appendChild(node)
-    }
-    /MSIE \d|Trident.*rv:/.test(navigator.userAgent) && insertScript(
-      '//cdn.jsdelivr.net/npm/bluebird@3.5.3/js/browser/bluebird.min.js'
-    )
-  })())
-  </script>
+  <div class="hero-body">
+    <div class="container">
+      <div class="field is-grouped clolumns is-gapless">
+        <div class="control column is-2">
+          <div id="select-color" class="select is-fullwidth is-primary">
+            <select id="todo-color">
+              <option value="is-info">Blue</option>
+              <option value="is-warning">Yellow</option>
+              <option value="is-danger">Red</option>
+              <option value="is-success">Green</option>
+            </select>
+          </div>
+        </div>
+        <div class="control column is-5">
+          <input id="todo-editor" class="input" type="text" autocomplete="off" placeholder="New To-Do">
+        </div>
+        <div class="control column is-1">
+          <button id="todo-save" class="button is-primary">&#x23ce;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="tile is-ancestor">
+        <div id="todo-list" class="todo-list tile is-vertical is-8">
+          <article class="todo-item tile is-child notification is-primary">
+            <p class="todo-text">Hello, world.</span>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+((function () {
+  var head = document.getElementsByTagName('head')[0]
+  function insertScript (src) {
+    var node = document.createElement('script')
+    node.src = src
+    head.appendChild(node)
+  }
+  /MSIE \d|Trident.*rv:/.test(navigator.userAgent) && insertScript(
+    '//cdn.jsdelivr.net/npm/bluebird@latest/js/browser/bluebird.min.js'
+  )
+})())
+</script>
 </body>
 </html>
