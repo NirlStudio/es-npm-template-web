@@ -12,14 +12,14 @@
   <div class="hero-head">
     <div class="container">
       <h1 class="title">Sugly To-Do</h1>
-      <h2 class="subtitle">also Powered by Bulma</h2>
+      <h2 class="subtitle">also Powered by RE:DOM & Bulma</h2>
     </div>
   </div>
   <div class="hero-body">
     <div class="container">
       <div class="field is-grouped clolumns is-gapless">
         <div class="control column is-2">
-          <div id="select-color" class="select is-fullwidth is-primary">
+          <div id="select-color" class="select is-fullwidth is-info">
             <select id="todo-color">
               <option value="is-info">Blue</option>
               <option value="is-warning">Yellow</option>
@@ -43,8 +43,16 @@
     <div class="container">
       <div class="tile is-ancestor">
         <div id="todo-list" class="todo-list tile is-vertical is-8">
-          <article class="todo-item tile is-child notification is-primary">
-            <p class="todo-text">Hello, world.</span>
+          <article class="tile is-child message is-primary">
+            <div class="message-header">
+              <label class="checkbox is-small">
+                <input type="checkbox" class="is-hidden"> pinned
+              </label>
+              <a class="delete is-hidden"></a>
+            </div>
+            <div class="message-body">
+              Hello, world.
+            </div>
           </article>
         </div>
       </div>

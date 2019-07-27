@@ -1,6 +1,10 @@
 (fetch
   "sugly/modules/@",
   "modules/@",
+  "api",
   "app",
-  "profile"
+  "profile",
+  "todo-editor",
+  "todo-item",
+  "todo-list"
 ).

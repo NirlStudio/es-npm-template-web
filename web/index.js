@@ -2,6 +2,8 @@
 
 // This is the glue code to run the default app.
 var $void = require('sugly/web')
+// setup native environment.
+require('./profile')($void)
 
 var sugly = $void(/* term, stdin, stdout, loader */)
 var initializing = sugly.run(/* appHome, context, args, app */)
