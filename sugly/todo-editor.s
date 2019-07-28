@@ -3,7 +3,7 @@
 # import a system module.
 const (bind, on) (import "window");
 # import a native module.
-const (mount, unmount) (import "$redom");
+const (unmount) (import "$redom");
 # import an app module.
 const (api) (import "./api"); # or: const (*) (import "./api");
 
@@ -31,8 +31,11 @@ bind select-color, todo-color, todo-editor, todo-save, todo-list;
   (if (var text (todo-editor value):: is-empty)
     return (todo-editor focus); # let user input something.
   ).
-  var data (@ kind: (get-color ), text);
+  # construct the data to be posted.
+  var data (@ color: (get-color ), text);
+  # (@:@ data) is a shortcut of (@ data: data)
   (api post "/api/v1/todo", (@:@ data):: finally (=> waiting
+    # any excuse value, except null, indicating an error.
     (if (waiting excuse:: is-not null)
       return (log w "failed to create todo entry for", (waiting excuse);
     ).

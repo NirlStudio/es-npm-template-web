@@ -6,35 +6,39 @@ const (bind, on) (import "window");
 const (mount, unmount) (import "$redom");
 # import an app module.
 const (api) (import "./api");
+# import todo-item element class.
+const (todo-item) (import "./todo-item");
 
 # bind a UI element to its id.
 bind todo-list;
 
 # attach a method to the UI element.
 (todo-list "create-item" (=> data
-  # populate data's memebers into variables.
-  var (text, kind, id) data;
-  # only receive refs if the item data have an id.
-  var ref (if (id is-a number) (@:);
-  var tile (load "./todo-item", (@ text, kind, ref);
-  (if ref
-    on-toggle (ref completed);
-    on-click (ref delete), tile, id;
-  ).
+  # create HTML element.
+  var tile (todo-item of data);
+  # listen for events.
+  tile on "complete", to-complete;
+  tile on "delete", to-delete;
+  # mount new element into doc.
   mount this, tile, firstChild;
 ).
 
 # event handler factory functions.
-(var on-toggle (=> completed
-  (on completed "change", (=> ()
-    # TODO
-  ).
+(var to-complete (=> (args, tile)
+  var (id, completed) args;
+  (api put 'api/v1/todo/$id', (@:@ completed):: finally (=> waiting
+    (if (waiting excuse:: is null)
+      tile update (waiting result:: data:: completed);
+    else
+      log w "failed to update the todo entry for", (waiting excuse);
+    ).
 ).
 
-(var on-click (=> (delete, tile, id)
-  (on delete "click", (=> ()
-    (api delete 'api/v1/todo/$id':: finally (=> ()
+(var to-delete (=> (args, tile)
+  (api delete 'api/v1/todo/$(args id)':: finally (=> ()
+    (if (waiting excuse:: is null)
       unmount todo-list, tile;
+    else
+      log w "failed to delete the todo entry for", (waiting excuse);
     ).
-  ).
 ).
