@@ -1,12 +1,12 @@
 'use strict'
 
 // This is the glue code to run the default app.
-var $void = require('sugly/web')
+var espresso = require('eslang/web')
 // setup native environment.
-require('./profile')($void)
+require('./profile')(espresso)
 
-var sugly = $void(/* term, stdin, stdout, loader */)
-var initializing = sugly.run(/* appHome, context, args, app */)
+var web = espresso(/* term, stdin, stdout, loader */)
+var initializing = web.run(/* appHome, context, args, app */)
 if (!(initializing instanceof Promise)) {
   console.info('app is running.')
 } else {

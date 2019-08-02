@@ -18,21 +18,21 @@ const prepareWebSite = new HooksPlugin({
     fs.existsSync('dist') || shell.mkdir('dist')
     fs.existsSync('dist/www') && shell.rm('-rf', 'dist/www')
     shell.mkdir('dist/www')
-    shell.mkdir('dist/www/sugly')
-    shell.mkdir('dist/www/sugly/modules')
-    shell.mkdir('dist/www/sugly/test')
+    shell.mkdir('dist/www/es')
+    shell.mkdir('dist/www/es/modules')
+    shell.mkdir('dist/www/es/test')
   },
   'beforeCompile@': (params, callback) => {
     var dependencies = params.compilationDependencies
-    if (dependencies.includeSuglyFiles) {
+    if (dependencies.includeEspressoFiles) {
       return callback()
     }
-    readDir('sugly/', file => {
-      if (file.endsWith('.s') && !dependencies.has(file)) {
+    readDir('es/', file => {
+      if (file.endsWith('.es') && !dependencies.has(file)) {
         dependencies.add(file)
       }
     })
-    dependencies.includeSuglyFiles = true
+    dependencies.includeEspressoFiles = true
     callback()
   },
   done: () => {
@@ -40,14 +40,14 @@ const prepareWebSite = new HooksPlugin({
     shell.cp('web/favicon.ico', output)
     shell.cp('-r', 'web/img', output)
     shell.cp('-r', 'web/style', output)
-    shell.cp('-r', 'sugly/*', output)
+    shell.cp('-r', 'es/*', output)
 
-    var runtime = 'node_modules/sugly/'
-    output += 'sugly/'
-    shell.cp(runtime + 'profile.s', output)
-    shell.cp(runtime + 'web/*.s', output)
-    shell.cp(runtime + 'modules/*.s', output + 'modules/')
-    shell.cp(runtime + 'test/test.s', output + 'test/')
+    var runtime = 'node_modules/eslang/'
+    output += 'es/'
+    shell.cp(runtime + 'profile.es', output)
+    shell.cp(runtime + 'web/*.es', output)
+    shell.cp(runtime + 'modules/*.es', output + 'modules/')
+    shell.cp(runtime + 'test/test.es', output + 'test/')
     shell.cp('-r', runtime + 'examples/', output)
     shell.cp('-r', runtime + 'spec/', output)
     shell.cp('-r', runtime + 'tools/', output)

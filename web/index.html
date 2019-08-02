@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Sugly To-Do</title>
+  <title>Espresso To-Do</title>
   <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
@@ -12,8 +12,8 @@
 <section class="hero is-light">
   <div class="hero-head">
     <div class="container">
-      <h1 class="title">Sugly To-Do</h1>
-      <h2 class="subtitle">also Powered by RE:DOM & Bulma</h2>
+      <h1 class="title">Espresso To-Do</h1>
+      <h2 class="subtitle">also Powered by RE:DOM &amp; Bulma</h2>
     </div>
   </div>
   <div class="hero-body">
@@ -67,9 +67,11 @@
     node.src = src
     head.appendChild(node)
   }
-  /MSIE \d|Trident.*rv:/.test(navigator.userAgent) && insertScript(
-    '//cdn.jsdelivr.net/npm/bluebird@latest/js/browser/bluebird.min.js'
-  )
+  if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+    insertScript(
+      '//cdn.jsdelivr.net/npm/bluebird@latest/js/browser/bluebird.min.js'
+    )
+  }
 })())
 </script>
 </body>

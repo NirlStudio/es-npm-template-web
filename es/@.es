@@ -1,5 +1,5 @@
 (fetch
-  "sugly/modules/@",
+  "es/modules/@",
   "modules/@",
   "api",
   "app",

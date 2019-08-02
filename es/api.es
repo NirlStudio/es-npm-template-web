@@ -9,6 +9,6 @@ const (api-url) -profile;
   baseURL: (api-url ?? "//localhost"),
   timeout: 30000,
   headers: (@
-    Accept: "application/x-sugly;q=0.9, application/json; q=0.8,*/*;q=0.7"
+    Accept: "application/x-espresso;q=0.9, application/json; q=0.8,*/*;q=0.7"
   ).
 ).

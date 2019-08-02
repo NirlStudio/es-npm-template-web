@@ -3,7 +3,7 @@ const connect (import call from "$connect");
 const static (import call from "$serve-static");
 
 (if (arguments contains "--api")
-  const api (import "sugly-npm-template-api/app");
+  const api (import "es-npm-template-api/app");
   (if (api not-empty)
     api main;
   else

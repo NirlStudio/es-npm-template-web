@@ -2,7 +2,7 @@
 
 # select is an alias of vanilla el.querySelector
 const (on, select, add-class, remove-class) (import "window");
-# '<>' is a valid sugly symbol.
+# '<>' is a valid Espresso symbol.
 const (<>, mount) (import (html, text, mount) from "$redom");
 
 # generate an element instance for data.
@@ -59,7 +59,6 @@ const (<>, mount) (import (html, text, mount) from "$redom");
   -bind: (=> id
     var checkbox (select el, "label.checkbox > input");
     (on checkbox, "change", (=> this:_ (=>()
-      debug arguments;
       _ emit "complete", (@:@ id, completed: (checkbox checked);
     ).
     (on (select el, "a.delete"), "click", (=> this:_ (=>()

@@ -26,6 +26,10 @@ dist/*
 
 # Dependency directory
 node_modules
+es/modules/*
+
+# Include loader (@.es) and other local modules.
+!es/modules/*.es
 
 # Optional npm cache directory
 .npm
@@ -35,4 +39,4 @@ node_modules
 
 # Temporary files
 temp
-*DS_Store
+*.DS_Store

@@ -1,5 +1,6 @@
+# expose Espresso console resources to web.
 # re-export shell commands.
-export * (load "sugly/profile");
+export * (load "es/profile");
 
 # export an app shell command for testing purpose.
 (export hello (= world

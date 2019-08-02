@@ -1,4 +1,4 @@
-#!/usr/bin/env sugly
+#!/usr/bin/env es
 
 # setup global environment.
 # note: load and expose profile file into a global -profile is a suggestion.
@@ -20,9 +20,9 @@ import "./todo-list";
 # try to update document (window) title.
 document "title" (-profile app-title);
 
-# as an example, to dynamically create an incompletable todo item.
+# as an example, to dynamically create a regular todo item.
 bind todo-list;
-todo-list create-item (@ text: "hint: this item is created from sugly side.");
+todo-list create-item (@ text: "hint: this item is created from Espresso side.");
 
 # load & update existing todos from server.
 (const reload-todos (=> ()
@@ -34,7 +34,7 @@ todo-list create-item (@ text: "hint: this item is created from sugly side.");
     # use a more meaningful name for data.
     var items (waiting result:: data);
     (if (items is-not-an array)
-      # varify result data. this could be much more complex in reality.
+      # verify result data. this could be much more complex in reality.
       return (log w "invalid result data:", items);
     ).
     # data seems ok for now. so
@@ -54,5 +54,5 @@ todo-list create-item (@ text: "hint: this item is created from sugly side.");
 reload-todos;
 
 # as an example, simply use a timer to do the refresh.
-const refeshing-task (timer of 5000, reload-todos);
-refeshing-task start;
+const refreshing-task (timer of 5000, reload-todos);
+refreshing-task start;
