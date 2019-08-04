@@ -45,7 +45,7 @@ todo-list create-item (@ text: "hint: this item is created from Espresso side.")
       unmount todo-list, (tiles item i);
     ).
     # re-insert reloaded todo entries.
-    (for item in items (if (item is-not null)
+    (for item in items
       todo-list create-item item;
     ).
 ).

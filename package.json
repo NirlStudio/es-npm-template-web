@@ -1,6 +1,6 @@
 {
   "name": "es-npm-template-web",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "an Espresso web site template.",
   "author": {
     "name": "Leevi Li",
@@ -38,9 +38,9 @@
   },
   "dependencies": {
     "connect": "^3.7.0",
+    "eslang": "^1.0.5",
     "express": "^4.17.1",
-    "serve-static": "^1.14.1",
-    "eslang": "^1.0.3"
+    "serve-static": "^1.14.1"
   },
   "devDependencies": {
     "hooks-webpack-plugin": "^1.0.3",
