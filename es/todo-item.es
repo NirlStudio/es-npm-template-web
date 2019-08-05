@@ -9,7 +9,8 @@ const (<>, mount) (import (html, text, mount) from "$redom");
 (const render (=> data
   var (id, text, color, completed) data;
   var is-completable (if (id is-a number) "is-completable");
-  (<> 'article.todo-item $(is-completable ?? "") tile is-child message $(color ?* "is-success")'
+  (<> 'article.todo-item $(is-completable ?? "") tile is-child
+       message $(color ?* "is-success")'
     (<> "div.message-header"
       (if is-completable
         (@
@@ -26,7 +27,6 @@ const (<>, mount) (import (html, text, mount) from "$redom");
           ).
           (<> "span.icon", (<> "i.mdi mdi-pin").
         ).
-      ).
     ).
     (<> "div.message-body"
       text
@@ -58,10 +58,10 @@ const (<>, mount) (import (html, text, mount) from "$redom");
 
   -bind: (=> id
     var checkbox (select el, "label.checkbox > input");
-    (on checkbox, "change", (=> this:_ (=>()
+    (on checkbox, "change", (=> this:_ (=> ()
       _ emit "complete", (@:@ id, completed: (checkbox checked);
     ).
-    (on (select el, "a.delete"), "click", (=> this:_ (=>()
+    (on (select el, "a.delete"), "click", (=> this:_ (=> ()
       _ emit "delete", (@:@ id);
     ).
   ).
