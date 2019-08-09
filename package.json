@@ -43,14 +43,14 @@
     "serve-static": "^1.14.1"
   },
   "devDependencies": {
-    "es-npm-template-api": "^1.2.0",
+    "es-npm-template-api": "^1.2.2",
     "hooks-webpack-plugin": "^1.0.3",
     "html-webpack-plugin": "^3.2.0",
     "mocha": "^6.2.0",
     "redom": "^3.24.0",
     "shelljs": "^0.8.3",
     "standard": "^12.0.1",
-    "webpack": "^4.38.0",
+    "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
   }
