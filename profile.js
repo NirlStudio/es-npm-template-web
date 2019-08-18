@@ -1,7 +1,8 @@
 'use strict'
 
-var modules = require('eslang/lib/modules')
-
 module.exports = function ($void) {
-  modules.expose('path', 'connect', 'serve-static')
+  // In spite of $void.require.expose is sufficient in this case, exposeFrom is
+  // used for demo's purpose.
+  // $void.require.expose('path', 'connect', 'serve-static')
+  $void.require.exposeFrom(__filename, 'path', 'connect', 'serve-static')
 }
