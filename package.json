@@ -47,7 +47,7 @@
     "html-webpack-plugin": "^3.2.0",
     "mocha": "^6.2.0",
     "redom": "^3.24.0",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "standard": "^12.0.1",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
